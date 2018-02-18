@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Team Binary Brothers";
+}
+<br />
+<br />
+<input type="button" class="btn btn-success btn-block" value="Turn On Binary Bot" onclick="turnOn()" />
+<br />
+<br />
+<input type="button" class="btn btn-danger btn-block" value="Turn Off Binary Bot" onclick="turnOff()" />
+<br />
+<br />
+<input type="button" class="btn btn-info btn-block" value="Send Message To Slack" onclick="sendmessage()" />
+
+<script>
+    function turnOn() {
+        turn("on");
+    }
+
+    function turnOff() {
+        turn("off");
+    }
+
+    function turn(value) {
+        $.ajax({
+            type: "POST",
+            url: "https://api.particle.io/v1/devices/gary2/led?access_token=e8635382b2ae24259c21ba9fbb90da6b2cd92f13",
+            data: '{"arg" : "' + value + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+    }
+
+    function sendmessage() {
+        $.ajax({
+            type: "POST",
+            url: "https://hooks.slack.com/services/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",
+            data: '{ "text" : "Hello From Team Binary Brothers!" }'
+        });
+    }
+
+</script>

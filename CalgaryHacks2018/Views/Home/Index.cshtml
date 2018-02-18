@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+<div class="form-horizontal">
+    <br />
+    <br />
+    <h1>Login to control panel</h1>
+    <div>
+        <input type="text" class="form-control" name="password" id="password" placeholder="Enter Password">
+    </div>
+    <br />
+    <br />
+    <div>
+        <input type="text" class="form-control" name="twofatoken" id="token" placeholder="Enter Two-Factor Token">
+    </div>
+    <br />
+    <br />
+    <div>
+        <input type="submit" class="btn btn-primary btn-block" tabindex="-1" />
+    </div>
+</div>
+}
